@@ -1,3 +1,9 @@
+fastrpc (1.0.6-1ubuntu2) resolute; urgency=medium
+
+  * debian: Fix fastrpc group creation and udev rule triggering
+
+ -- Michaël Blanc <michael.blanc@canonical.com>  Mon, 07 Sep 2026 15:30:29 +0200
+
 fastrpc (1.0.6-1) resolute; urgency=medium
 
   [ Ekansh Gupta ]
