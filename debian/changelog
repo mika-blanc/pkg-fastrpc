@@ -1,3 +1,9 @@
+fastrpc (1.0.6-1ubuntu3) resolute; urgency=medium
+
+  * debian: Add patch to prevent audiopd service from running
+
+ -- Michaël Blanc <michael.blanc@canonical.com>  Thu, 17 Sep 2026 16:34:37 +0200
+
 fastrpc (1.0.6-1ubuntu2) resolute; urgency=medium
 
   * debian: Fix fastrpc group creation and udev rule triggering
