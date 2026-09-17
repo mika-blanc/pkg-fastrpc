@@ -1,0 +1,25 @@
+commit 5b672758c8523d02a750a84201566a6ad03612bb
+Author: Alexis Cellier <alexis.cellier@canonical.com>
+Date:   Thu Sep 17 15:39:59 2026 +0200
+
+    Do not start adsprpcd_audiod.service
+    
+    The current kernel does not support that feature.
+    
+    LP: #2167378
+
+diff --git a/files/60-fastrpc.rules b/files/60-fastrpc.rules
+index 546de35..ebc8e3b 100644
+--- a/files/60-fastrpc.rules
++++ b/files/60-fastrpc.rules
+@@ -5,8 +5,8 @@ ACTION=="add", SUBSYSTEM=="dma_heap", KERNEL=="system", RUN+="/bin/setfacl -m g:
+ 
+ # FastRPC DSP device nodes
+ # Device nodes are owned by root:fastrpc with 0640 permissions
+-ACTION=="add", SUBSYSTEM=="misc", KERNEL=="fastrpc-adsp",         OWNER="root", GROUP="fastrpc", MODE="0640", TAG+="systemd", ENV{SYSTEMD_WANTS}+="adsprpcd.service", ENV{SYSTEMD_WANTS}+="adsprpcd_audiopd.service"
+-ACTION=="add", SUBSYSTEM=="misc", KERNEL=="fastrpc-adsp-secure",  TAG+="systemd", ENV{SYSTEMD_WANTS}+="adsprpcd.service", ENV{SYSTEMD_WANTS}+="adsprpcd_audiopd.service"
++ACTION=="add", SUBSYSTEM=="misc", KERNEL=="fastrpc-adsp",         OWNER="root", GROUP="fastrpc", MODE="0640", TAG+="systemd", ENV{SYSTEMD_WANTS}+="adsprpcd.service"
++ACTION=="add", SUBSYSTEM=="misc", KERNEL=="fastrpc-adsp-secure",  TAG+="systemd", ENV{SYSTEMD_WANTS}+="adsprpcd.service"
+ ACTION=="add", SUBSYSTEM=="misc", KERNEL=="fastrpc-cdsp",         OWNER="root", GROUP="fastrpc", MODE="0640", TAG+="systemd", ENV{SYSTEMD_WANTS}+="cdsprpcd.service"
+ ACTION=="add", SUBSYSTEM=="misc", KERNEL=="fastrpc-cdsp-secure",  TAG+="systemd", ENV{SYSTEMD_WANTS}+="cdsprpcd.service"
+ ACTION=="add", SUBSYSTEM=="misc", KERNEL=="fastrpc-cdsp1",        OWNER="root", GROUP="fastrpc", MODE="0640", TAG+="systemd", ENV{SYSTEMD_WANTS}+="cdsp1rpcd.service"
